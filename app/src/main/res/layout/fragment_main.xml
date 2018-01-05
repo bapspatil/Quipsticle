@@ -20,8 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
+        android:background="@color/colorAccent"
         android:onClick="tellJoke"
-        android:text="@string/button_text"/>
+        android:text="@string/button_text"
+        android:textColor="@color/white"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
