@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Quipsticle</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="button_text">Tell Joke</string>
+    <string name="instructions">Press the button for a delicious joke!</string>
 </resources>
