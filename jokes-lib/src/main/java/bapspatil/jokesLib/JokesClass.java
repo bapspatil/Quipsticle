@@ -15,8 +15,8 @@ public class JokesClass {
             "I'm not saying your perfume is too strong. I'm just saying the canary was alive before you got here."
     ));
 
-    public static ArrayList<String> fetchJokes() {
+    public static String fetchJokes() {
         Collections.shuffle(jokes);
-        return jokes;
+        return jokes.get(0);
     }
 }

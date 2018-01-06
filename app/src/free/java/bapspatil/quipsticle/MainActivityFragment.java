@@ -13,13 +13,10 @@ import android.widget.Button;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import java.util.ArrayList;
-
 import bapspatil.jokeScreen.JokeActivity;
 
 public class MainActivityFragment extends Fragment implements OnJokesReceivedListener {
-    private int count = 0;
-    private ArrayList<String> jokesList = new ArrayList<>();
+    private String mJoke;
 
     public MainActivityFragment() {
         // Required empty public constructor
@@ -45,36 +42,22 @@ public class MainActivityFragment extends Fragment implements OnJokesReceivedLis
             }
         });
 
-        fetchAllJokes();
-
         return root;
     }
 
-    private void fetchAllJokes() {
+    public void tellJoke() {
         new EndpointsAsyncTask().execute(this);
     }
 
-    public void tellJoke() {
-        String joke;
-        if(count != jokesList.size()) {
-            joke = jokesList.get(count);
-            count++;
-        } else {
-            count = 0;
-            joke = jokesList.get(count);
-            count++;
-        }
-        startJokeActivity(joke);
-    }
-
-    private void startJokeActivity(String joke) {
+    private void startJokeActivity() {
         Intent jokeIntent = new Intent(getActivity(), JokeActivity.class);
-        jokeIntent.putExtra(JokeActivity.JOKE_INTENT, joke);
+        jokeIntent.putExtra(JokeActivity.JOKE_INTENT, mJoke);
         startActivity(jokeIntent);
     }
 
     @Override
-    public void onJokesReceived(ArrayList<String> jokes) {
-        jokesList.addAll(jokes);
+    public void onJokesReceived(String joke) {
+        mJoke = joke;
+        startJokeActivity();
     }
 }

@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/kdBVeVYTuIfTmloWTMemIIKK6Pw\"",
+ "etag": "\"RnkXbyw9us4_w3H-FU6An0C4oYs/-dwAaF1BIOtILgXmRhDBR2krMAI\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -13,10 +13,10 @@
   "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
  },
  "protocol": "rest",
- "baseUrl": "https://bapspatil-android-nanodegree.appspot.com/_ah/api/myApi/v1/",
- "basePath": "/_ah/api/myApi/v1/",
+ "baseUrl": "https://bapspatil-android-nanodegree.appspot.com/_ah/api/myApi/v1/sayHi/",
+ "basePath": "/_ah/api/myApi/v1/sayHi/",
  "rootUrl": "https://bapspatil-android-nanodegree.appspot.com/_ah/api/",
- "servicePath": "myApi/v1/",
+ "servicePath": "myApi/v1/sayHi/",
  "batchPath": "batch",
  "parameters": {
   "alt": {
@@ -79,12 +79,6 @@
    "properties": {
     "data": {
      "type": "string"
-    },
-    "myJokes": {
-     "type": "array",
-     "items": {
-      "type": "string"
-     }
     }
    }
   }
@@ -92,7 +86,7 @@
  "methods": {
   "sayHi": {
    "id": "myApi.sayHi",
-   "path": "sayHi/{name}",
+   "path": "{name}",
    "httpMethod": "POST",
    "parameters": {
     "name": {
@@ -103,28 +97,6 @@
    },
    "parameterOrder": [
     "name"
-   ],
-   "response": {
-    "$ref": "MyBean"
-   },
-   "scopes": [
-    "https://www.googleapis.com/auth/userinfo.email"
-   ]
-  },
-  "tellAJoke": {
-   "id": "myApi.tellAJoke",
-   "path": "tellAJoke/{jokes}",
-   "httpMethod": "POST",
-   "parameters": {
-    "jokes": {
-     "type": "string",
-     "required": true,
-     "repeated": true,
-     "location": "path"
-    }
-   },
-   "parameterOrder": [
-    "jokes"
    ],
    "response": {
     "$ref": "MyBean"

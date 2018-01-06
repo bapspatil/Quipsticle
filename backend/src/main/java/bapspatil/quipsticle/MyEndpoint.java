@@ -10,8 +10,6 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
-import java.util.ArrayList;
-
 import javax.inject.Named;
 
 import bapspatil.jokesLib.JokesClass;
@@ -33,15 +31,8 @@ public class MyEndpoint {
     @ApiMethod(name = "sayHi")
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();
-        response.setData("Hi, " + name);
-        return response;
-    }
-
-    @ApiMethod(name = "tellAJoke")
-    public MyBean tellAJoke(@Named("jokes") ArrayList<String> jokes) {
-        MyBean response = new MyBean();
-        jokes.addAll(JokesClass.fetchJokes());
-        response.setMyJokes(jokes);
+        name = JokesClass.fetchJokes();
+        response.setData(name);
         return response;
     }
 

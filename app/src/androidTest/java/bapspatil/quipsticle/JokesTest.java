@@ -7,7 +7,6 @@ import android.test.ApplicationTestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 @RunWith(AndroidJUnit4.class)
 public class JokesTest extends ApplicationTestCase<Application> implements OnJokesReceivedListener {
     private CountDownLatch signal;
-    private ArrayList<String> jokes = new ArrayList<>();
+    private String joke;
 
     public JokesTest() {
         super(Application.class);
@@ -30,16 +29,16 @@ public class JokesTest extends ApplicationTestCase<Application> implements OnJok
             signal = new CountDownLatch(1);
             new EndpointsAsyncTask().execute(this);
             signal.await(10, TimeUnit.SECONDS);
-            assertNotNull("Null list of jokes received!", jokes);
-            assertFalse("Empty list of jokes received!", jokes.isEmpty());
+            assertNotNull("Null joke received!", joke);
+            assertFalse("Empty joke received!", joke.isEmpty());
         } catch (Exception e) {
             fail();
         }
     }
 
     @Override
-    public void onJokesReceived(ArrayList<String> jokes) {
-        this.jokes = jokes;
+    public void onJokesReceived(String joke) {
+        this.joke = joke;
         signal.countDown();
     }
 }
