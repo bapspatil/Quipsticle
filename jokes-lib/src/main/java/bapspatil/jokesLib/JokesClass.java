@@ -3,10 +3,8 @@ package bapspatil.jokesLib;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Random;
 
 public class JokesClass {
-    private static Random random = new Random();
 
     private static ArrayList<String> jokes = new ArrayList<>(Arrays.asList(
             "A lot of people cry when they cut onions. The trick is not to form an emotional bond.",

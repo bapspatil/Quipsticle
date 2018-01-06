@@ -1,12 +1,13 @@
 package bapspatil.quipsticle;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import bapspatil.jokeScreen.JokeActivity;
 import bapspatil.jokesLib.JokesClass;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
             joke = jokesList.get(count);
             count++;
         }
-        Toast.makeText(this, joke, Toast.LENGTH_LONG).show();
+        Intent jokeIntent = new Intent(this, JokeActivity.class);
+        jokeIntent.putExtra(JokeActivity.JOKE_INTENT, joke);
+        startActivity(jokeIntent);
     }
 }

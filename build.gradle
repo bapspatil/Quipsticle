@@ -10,6 +10,10 @@ buildscript {
     }
 }
 
+ext {
+    sup = '27.0.2'
+}
+
 allprojects {
     repositories {
         google()
