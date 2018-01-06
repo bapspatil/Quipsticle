@@ -30,7 +30,7 @@ public class EndpointsAsyncTask extends AsyncTask<OnJokesReceivedListener, Void,
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-                            abstractGoogleClientRequest.setDisableGZipContent(true);
+                            abstractGoogleClientRequest.setDisableGZipContent(false);
                         }
                     });
             myApi = builder.build();
@@ -39,6 +39,7 @@ public class EndpointsAsyncTask extends AsyncTask<OnJokesReceivedListener, Void,
         try {
             return (ArrayList<String>) myApi.tellAJoke(jokes).execute().getMyJokes();
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
     }
